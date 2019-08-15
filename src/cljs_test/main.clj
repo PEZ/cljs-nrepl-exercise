@@ -55,11 +55,15 @@
    (require 'figwheel.main.api)
    ((ns-resolve 'figwheel.main.api 'cljs-repl) build)))
 
+(defn start-nrepl+fig
+  []
+  (use 'clojure.repl)
+  (start-nrepl!)
+  (start-fig))
+
 (defn -main []
   (rebel-core/ensure-terminal
    (rebel-clj-main/repl*
     {:init (fn []
-             (require '[cljs-test.main :refer :all])
-             (use 'clojure.repl)
-             (start-nrepl!)
-             (start-fig))})))
+             (require '[cljs-test.main :refer [start-nrepl+fig]])
+             (start-nrepl+fig))})))
