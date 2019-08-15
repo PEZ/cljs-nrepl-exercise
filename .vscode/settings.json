@@ -1,7 +1,10 @@
 {
     "calva.customCljsRepl": {
         "name": "nREPL hot reload",
-        "startCode": "(cljs-repl)",
+        "connect-startCode": "(do (require '[cljs-test.main :refer :all])(start-nrepl+fig))",
+        "startCode": "(do (use 'cljs-test.main) (cljs-repl))",
+        "tellUserToStartRegExp": "Prompt will show",
+        "printThisLineRegExp": "\\[Figwheel\\] Starting Server at.*",
         "connectedRegExp": "To quit, type: :cljs/quit"
     }
 }
