@@ -6,5 +6,26 @@
         "tellUserToStartRegExp": "Prompt will show",
         "printThisLineRegExp": "\\[Figwheel\\] Starting Server at.*",
         "connectedRegExp": "To quit, type: :cljs/quit"
-    }
+    },
+    "calva.customCodeSnippets": [
+        {
+            "name": ""
+        }
+    ],
+    "calva.replConnectSequences": [
+        {
+            "name": "nREPL hot reload",
+            "afterCLJReplJackInCode": "(println :foo)",
+            "projectType": "Leiningen",
+            "cljsType": {
+                "name": "foo",
+                "connectCode": "(do (require '[cljs-test.main :refer :all]) (start-nrepl+fig))",
+                "isReadyToStartRegExp": "Prompt will show",
+                "openUrlRegExp": "Starting Server at (\\S+)",
+                "shouldOpenUrl": false,
+                "connectCodez": "(do (use 'cljs-test.main) (cljs-repl))",
+                "isConnectedRegExp": "To quit, type: :cljs/quit"
+            }
+        }
+    ]
 }
